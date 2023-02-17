@@ -454,27 +454,30 @@
                 <div class="pcoded-inner-navbar main-menu">
                   <div class="pcoded-navigation-label">Navigation</div>
                   <ul class="pcoded-item pcoded-left-item">
-                    <li class="pcoded-hasmenu active pcoded-trigger">
-                      <a href="./index.html" class="waves-effect waves-dark">
+                    <li
+                      onClick="JavaScript:selectTab(1);"
+                      class="pcoded-hasmenu"
+                    >
+                      <a class="waves-effect waves-dark">
                         <span class="pcoded-micon"
                           ><i class="feather icon-home"></i
                         ></span>
                         <span class="pcoded-mtext">Transporter</span>
                       </a>
                     </li>
-                    <li class="pcoded-hasmenu">
-                      <a
-                        href="./Orders-list.html"
-                        class="waves-effect waves-dark"
-                      >
+                    <li
+                      onClick="JavaScript:selectTab(2);"
+                      class="pcoded-hasmenu"
+                    >
+                      <a class="waves-effect waves-dark">
                         <span class="pcoded-micon"
                           ><i class="feather icon-sidebar"></i
                         ></span>
                         <span class="pcoded-mtext">Orders</span>
                       </a>
                     </li>
-                    <li class="">
-                      <a href="Agent-list.html" class="waves-effect waves-dark">
+                    <li onClick="JavaScript:selectTab(3);" class="">
+                      <a class="waves-effect waves-dark">
                         <span class="pcoded-micon">
                           <i class="feather icon-menu"></i>
                         </span>
@@ -511,7 +514,8 @@
               </div>
             </nav>
 
-            <div class="pcoded-content">
+            <!-- transporter list div start -->
+            <div class="pcoded-content" id="floww-transport-div">
               <div class="page-header card">
                 <div class="row align-items-end">
                   <div class="col-lg-8">
@@ -520,7 +524,8 @@
                       <div class="d-inline">
                         <h5>Transporters List</h5>
                         <span
-                          >Below are the list of all our transporter with details</span
+                          >Below are the list of all our transporter with
+                          details</span
                         >
                       </div>
                     </div>
@@ -546,7 +551,7 @@
                 <div class="main-body">
                   <div class="page-wrapper">
                     <div class="page-body">
-                      <div class="row" style="background-color: white;">
+                      <div class="row" style="background-color: white">
                         <!-- list start -->
                         <div class="col-md-12">
                           <div class="card-block p-b-0">
@@ -618,6 +623,227 @@
                 </div>
               </div>
             </div>
+            <!-- transporter list div ends -->
+            <!-- Order list div start -->
+            <div class="pcoded-content" id="floww-order-div">
+              <div class="page-header card">
+                <div class="row align-items-end">
+                  <div class="col-lg-8">
+                    <div class="page-header-title">
+                      <i class="feather icon-home bg-c-blue"></i>
+                      <div class="d-inline">
+                        <h5>Orders List</h5>
+                        <span
+                          >Below are the list of all our transporter with
+                          details</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="page-header-breadcrumb">
+                      <ul class="breadcrumb breadcrumb-title">
+                        <li class="breadcrumb-item">
+                          <a href="index.html"
+                            ><i class="feather icon-home"></i
+                          ></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                          <a href="#!">Dashboard</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pcoded-inner-content">
+                <div class="main-body">
+                  <div class="page-wrapper">
+                    <div class="page-body">
+                      <div class="row" style="background-color: white">
+                        <!-- list start -->
+                        <div class="col-md-12">
+                          <div class="card-block p-b-0">
+                            <div class="table-responsive">
+                              <table class="table table-hover m-b-0">
+                                <thead>
+                                  <tr>
+                                    <th>Name</th>
+                                    <th>Product Code</th>
+                                    <th>Customer</th>
+                                    <th>Status</th>
+                                    <th>Rating</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>Sofa</td>
+                                    <td>#PHD001</td>
+                                    <td>
+                                      <a
+                                        href="/cdn-cgi/l/email-protection"
+                                        class="__cf_email__"
+                                        data-cfemail="29484b4a694e44484045074a4644"
+                                        >[email&#160;protected]</a
+                                      >
+                                    </td>
+                                    <td>
+                                      <label class="label label-danger"
+                                        >Out Stock</label
+                                      >
+                                    </td>
+                                    <td>
+                                      <a href="#!"
+                                        ><i
+                                          class="fa fa-star f-12 text-c-yellow"
+                                        ></i
+                                      ></a>
+                                      <a href="#!"
+                                        ><i
+                                          class="fa fa-star f-12 text-c-yellow"
+                                        ></i
+                                      ></a>
+                                      <a href="#!"
+                                        ><i
+                                          class="fa fa-star f-12 text-c-yellow"
+                                        ></i
+                                      ></a>
+                                      <a href="#!"
+                                        ><i
+                                          class="fa fa-star f-12 text-default"
+                                        ></i
+                                      ></a>
+                                      <a href="#!"
+                                        ><i
+                                          class="fa fa-star f-12 text-default"
+                                        ></i
+                                      ></a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- list end -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- order list div ends -->
+            <!-- Agent list div start -->
+            <div class="pcoded-content" id="floww-agent-div">
+              <div class="page-header card">
+                <div class="row align-items-end">
+                  <div class="col-lg-8">
+                    <div class="page-header-title">
+                      <i class="feather icon-home bg-c-blue"></i>
+                      <div class="d-inline">
+                        <h5>Agent List</h5>
+                        <span
+                          >Below are the list of all our transporter with
+                          details</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="page-header-breadcrumb">
+                      <ul class="breadcrumb breadcrumb-title">
+                        <li class="breadcrumb-item">
+                          <a href="index.html"
+                            ><i class="feather icon-home"></i
+                          ></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                          <a href="#!">Dashboard</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pcoded-inner-content">
+                <div class="main-body">
+                  <div class="page-wrapper">
+                    <div class="page-body">
+                      <div class="row" style="background-color: white">
+                        <!-- list start -->
+                        <div class="col-md-12">
+                          <div class="card-block p-b-0">
+                            <div class="table-responsive">
+                              <table class="table table-hover m-b-0">
+                                <thead>
+                                  <tr>
+                                    <th>Name</th>
+                                    <th>Product Code</th>
+                                    <th>Customer</th>
+                                    <th>Status</th>
+                                    <th>Rating</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>Sofa</td>
+                                    <td>#PHD001</td>
+                                    <td>
+                                      <a
+                                        href="/cdn-cgi/l/email-protection"
+                                        class="__cf_email__"
+                                        data-cfemail="29484b4a694e44484045074a4644"
+                                        >[email&#160;protected]</a
+                                      >
+                                    </td>
+                                    <td>
+                                      <label class="label label-danger"
+                                        >Out Stock</label
+                                      >
+                                    </td>
+                                    <td>
+                                      <a href="#!"
+                                        ><i
+                                          class="fa fa-star f-12 text-c-yellow"
+                                        ></i
+                                      ></a>
+                                      <a href="#!"
+                                        ><i
+                                          class="fa fa-star f-12 text-c-yellow"
+                                        ></i
+                                      ></a>
+                                      <a href="#!"
+                                        ><i
+                                          class="fa fa-star f-12 text-c-yellow"
+                                        ></i
+                                      ></a>
+                                      <a href="#!"
+                                        ><i
+                                          class="fa fa-star f-12 text-default"
+                                        ></i
+                                      ></a>
+                                      <a href="#!"
+                                        ><i
+                                          class="fa fa-star f-12 text-default"
+                                        ></i
+                                      ></a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- list end -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- agent list div ends -->
           </div>
 
           <div id="styleSelector"></div>
@@ -698,5 +924,30 @@
     <script src="js/vertical-layout.min.js"></script>
     <script type="text/javascript" src="js/custom-dashboard.min.js"></script>
     <script type="text/javascript" src="js/script.min.js"></script>
+    <script>
+      // static condition
+      document.getElementById("floww-transport-div").style.display = "block";
+      document.getElementById("floww-order-div").style.display = "none";
+      document.getElementById("floww-agent-div").style.display = "none";
+      function selectTab(tabIndex) {
+        //Show the Selected Tab
+        if (tabIndex == 1) {
+          document.getElementById("floww-transport-div").style.display =
+            "block";
+          document.getElementById("floww-order-div").style.display = "none";
+          document.getElementById("floww-agent-div").style.display = "none";
+        }
+        if (tabIndex == 2) {
+          document.getElementById("floww-transport-div").style.display = "none";
+          document.getElementById("floww-order-div").style.display = "block";
+          document.getElementById("floww-agent-div").style.display = "none";
+        }
+        if (tabIndex == 3) {
+          document.getElementById("floww-transport-div").style.display = "none";
+          document.getElementById("floww-order-div").style.display = "none";
+          document.getElementById("floww-agent-div").style.display = "block";
+        }
+      }
+    </script>
   </body>
 </html>
