@@ -744,6 +744,10 @@ a.bg-danger:hover {
 .b-none {
   border: none;
 }
+.floww-table-address {
+  white-space: pre-line; 
+  word-break: break-all; 
+}
 .table-primary,
 .table-primary > td,
 .table-primary > th {
@@ -15939,7 +15943,6 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
 }
 @media only screen and (max-width: 1199px) {
   .pagination {
-    float: inherit;
     text-align: center;
     display: inline-block;
     margin-top: 10px;

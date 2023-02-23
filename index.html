@@ -56,6 +56,7 @@
     />
 
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/alltablestyles.css" />
   </head>
 
   <body>
@@ -74,11 +75,13 @@
                   class="img-fluid"
                   src="img/logo/logo.png"
                   alt="Theme-Logo"
-                  style="width: 60%"
                 />
               </a>
               <a class="mobile-menu" id="mobile-collapse" href="#!">
-                <i class="feather icon-menu icon-toggle-right"></i>
+                <i
+                  style="zoom: 2"
+                  class="feather icon-menu icon-toggle-right"
+                ></i>
               </a>
               <a class="mobile-options waves-effect waves-light">
                 <i class="feather icon-more-horizontal"></i>
@@ -554,64 +557,29 @@
                       <div class="row" style="background-color: white">
                         <!-- list start -->
                         <div class="col-md-12">
-                          <div class="card-block p-b-0">
+                          <div class="card-block p-span-0">
                             <div class="table-responsive">
-                              <table class="table table-hover m-b-0">
+                              <div
+                                class="floww-orderdetails"
+                              >
+                                
+                              </div>
+                              <table class="table table-hover m-span-0">
                                 <thead>
                                   <tr>
-                                    <th>Name</th>
-                                    <th>Product Code</th>
-                                    <th>Customer</th>
                                     <th>Status</th>
-                                    <th>Rating</th>
+                                    <th>Order Id</th>
+                                    <th>Pickup Address</th>
+                                    <th>Drop Address</th>
+                                    <th>Drop No</th>
+                                    <th>Transporter</th>
+                                    <th>Customer Id</th>
+                                    <th>Delivery Agent</th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Sofa</td>
-                                    <td>#PHD001</td>
-                                    <td>
-                                      <a
-                                        href="/cdn-cgi/l/email-protection"
-                                        class="__cf_email__"
-                                        data-cfemail="29484b4a694e44484045074a4644"
-                                        >[email&#160;protected]</a
-                                      >
-                                    </td>
-                                    <td>
-                                      <label class="label label-danger"
-                                        >Out Stock</label
-                                      >
-                                    </td>
-                                    <td>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-c-yellow"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-c-yellow"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-c-yellow"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-default"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-default"
-                                        ></i
-                                      ></a>
-                                    </td>
-                                  </tr>
-                                </tbody>
+                                <tbody
+                                  class="floww-transport-table-row"
+                                ></tbody>
                               </table>
                             </div>
                           </div>
@@ -664,9 +632,9 @@
                       <div class="row" style="background-color: white">
                         <!-- list start -->
                         <div class="col-md-12">
-                          <div class="card-block p-b-0">
+                          <div class="card-block p-span-0">
                             <div class="table-responsive">
-                              <table class="table table-hover m-b-0">
+                              <table class="table table-hover m-span-0">
                                 <thead>
                                   <tr>
                                     <th>Name</th>
@@ -774,9 +742,9 @@
                       <div class="row" style="background-color: white">
                         <!-- list start -->
                         <div class="col-md-12">
-                          <div class="card-block p-b-0">
+                          <div class="card-block p-span-0">
                             <div class="table-responsive">
-                              <table class="table table-hover m-b-0">
+                              <table class="table table-hover m-span-0">
                                 <thead>
                                   <tr>
                                     <th>Name</th>
@@ -913,8 +881,8 @@
     <script src="js/jquery.flot.categories.js"></script>
     <script src="js/curvedLines.js"></script>
     <script src="js/jquery.flot.tooltip.min.js"></script>
-
-    <script src="js/chartist.js"></script>
+    x
+    <script src="./js/chartist.js"></script>
 
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
@@ -922,8 +890,10 @@
 
     <script src="js/pcoded.min.js"></script>
     <script src="js/vertical-layout.min.js"></script>
-    <script type="text/javascript" src="js/custom-dashboard.min.js"></script>
+    <!-- <script type="text/javascript" src="js/custom-dashboard.min.js"></script> -->
     <script type="text/javascript" src="js/script.min.js"></script>
+    <script type="text/javascript" src="js/allTables.js"></script>
+    \
     <script>
       // static condition
       document.getElementById("floww-transport-div").style.display = "block";
