@@ -583,9 +583,11 @@
 }
 .icon-toggle-left:before {
   content: "\e8d8";
+  zoom: 2;
 }
 .icon-toggle-right:before {
   content: "\e8d9";
+  zoom: 2;
 }
 .icon-trash-2:before {
   content: "\e8da";

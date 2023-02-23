@@ -77,19 +77,20 @@
                   alt="Theme-Logo"
                 />
               </a>
-              <a class="mobile-menu" id="mobile-collapse" href="#!">
-                <i
-                  style="zoom: 2"
-                  class="feather icon-menu icon-toggle-right"
-                ></i>
-              </a>
-              <a class="mobile-options waves-effect waves-light">
-                <i class="feather icon-more-horizontal"></i>
-              </a>
             </div>
             <div class="navbar-container container-fluid">
               <ul class="nav-left">
-                <li class="header-search">
+                <!-- <li>
+                  <a
+                    style="padding: 0"
+                    class="mobile-menu"
+                    id="mobile-collapse"
+                    href="#!"
+                  >
+                    <i class="feather icon-menu icon-toggle-right"></i>
+                  </a>
+                </li> -->
+                <li style="margin: 0; padding: 0" class="header-search">
                   <div class="main-search morphsearch-search">
                     <div class="input-group">
                       <span class="input-group-prepend search-close">
@@ -113,6 +114,11 @@
                     class="waves-effect waves-light"
                   >
                     <i class="full-screen feather icon-maximize"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="mobile-options waves-effect waves-light">
+                    <i class="feather icon-more-horizontal"></i>
                   </a>
                 </li>
               </ul>
@@ -457,28 +463,25 @@
                 <div class="pcoded-inner-navbar main-menu">
                   <div class="pcoded-navigation-label">Navigation</div>
                   <ul class="pcoded-item pcoded-left-item">
-                    <li
-                      onClick="JavaScript:selectTab(1);"
-                      class="pcoded-hasmenu"
-                    >
+                    <!-- transpoerter -->
+                    <li onClick="JavaScript:selectTab(1);" class="">
                       <a class="waves-effect waves-dark">
-                        <span class="pcoded-micon"
-                          ><i class="feather icon-home"></i
-                        ></span>
-                        <span class="pcoded-mtext">Transporter</span>
+                        <span class="pcoded-micon">
+                          <i class="feather icon-menu"></i>
+                        </span>
+                        <span class="pcoded-mtext">Transporter List</span>
                       </a>
                     </li>
-                    <li
-                      onClick="JavaScript:selectTab(2);"
-                      class="pcoded-hasmenu"
-                    >
+                    <!-- order -->
+                    <li onClick="JavaScript:selectTab(2);" class="">
                       <a class="waves-effect waves-dark">
-                        <span class="pcoded-micon"
-                          ><i class="feather icon-sidebar"></i
-                        ></span>
-                        <span class="pcoded-mtext">Orders</span>
+                        <span class="pcoded-micon">
+                          <i class="feather icon-menu"></i>
+                        </span>
+                        <span class="pcoded-mtext">Order List</span>
                       </a>
                     </li>
+                    <!-- agent -->
                     <li onClick="JavaScript:selectTab(3);" class="">
                       <a class="waves-effect waves-dark">
                         <span class="pcoded-micon">
@@ -559,11 +562,7 @@
                         <div class="col-md-12">
                           <div class="card-block p-span-0">
                             <div class="table-responsive">
-                              <div
-                                class="floww-orderdetails"
-                              >
-                                
-                              </div>
+                              <div class="floww-orderdetails"></div>
                               <table class="table table-hover m-span-0">
                                 <thead>
                                   <tr>
@@ -893,31 +892,6 @@
     <!-- <script type="text/javascript" src="js/custom-dashboard.min.js"></script> -->
     <script type="text/javascript" src="js/script.min.js"></script>
     <script type="text/javascript" src="js/allTables.js"></script>
-    \
-    <script>
-      // static condition
-      document.getElementById("floww-transport-div").style.display = "block";
-      document.getElementById("floww-order-div").style.display = "none";
-      document.getElementById("floww-agent-div").style.display = "none";
-      function selectTab(tabIndex) {
-        //Show the Selected Tab
-        if (tabIndex == 1) {
-          document.getElementById("floww-transport-div").style.display =
-            "block";
-          document.getElementById("floww-order-div").style.display = "none";
-          document.getElementById("floww-agent-div").style.display = "none";
-        }
-        if (tabIndex == 2) {
-          document.getElementById("floww-transport-div").style.display = "none";
-          document.getElementById("floww-order-div").style.display = "block";
-          document.getElementById("floww-agent-div").style.display = "none";
-        }
-        if (tabIndex == 3) {
-          document.getElementById("floww-transport-div").style.display = "none";
-          document.getElementById("floww-order-div").style.display = "none";
-          document.getElementById("floww-agent-div").style.display = "block";
-        }
-      }
-    </script>
+    <script src="./js/dasboard.js"></script>
   </body>
 </html>

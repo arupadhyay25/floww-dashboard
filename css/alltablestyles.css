@@ -30,3 +30,6 @@
 .flow-table-details-div > div > ul > li > ul > li > span {
   font-weight: bold;
 }
+.floww-transport-table-row{
+  cursor: pointer;
+}

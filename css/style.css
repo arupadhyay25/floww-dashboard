@@ -11615,6 +11615,7 @@ body
   .navbar-wrapper
   .navbar-logo {
   float: right;
+  
 }
 body
   .pcoded[vertical-placement="right"]
@@ -15956,6 +15957,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
   .navbar,
   .navbar .navbar-logo {
     width: 100%;
+    
   }
   #dt-live-dom .form-control,
   #footer-search tfoot .form-control,
