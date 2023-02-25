@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <title>Admindek | Admin Template</title>
+    <script src="./js/axios.min.js"></script>
 
     <!--[if lt IE 10]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -107,7 +108,7 @@
                     </div>
                   </div>
                 </li>
-                <li>
+                <!-- <li>
                   <a
                     href="#!"
                     onclick="javascript:toggleFullScreen()"
@@ -115,97 +116,14 @@
                   >
                     <i class="full-screen feather icon-maximize"></i>
                   </a>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                   <a class="mobile-options waves-effect waves-light">
                     <i class="feather icon-more-horizontal"></i>
                   </a>
-                </li>
+                </li> -->
               </ul>
               <ul class="nav-right">
-                <li class="header-notification">
-                  <div class="dropdown-primary dropdown">
-                    <div class="dropdown-toggle" data-toggle="dropdown">
-                      <i class="feather icon-bell"></i>
-                      <span class="badge bg-c-red">5</span>
-                    </div>
-                    <ul
-                      class="show-notification notification-view dropdown-menu"
-                      data-dropdown-in="fadeIn"
-                      data-dropdown-out="fadeOut"
-                    >
-                      <li>
-                        <h6>Notifications</h6>
-                        <label class="label label-danger">New</label>
-                      </li>
-                      <li>
-                        <div class="media">
-                          <img
-                            class="img-radius"
-                            src="img/Prakhar.jpeg"
-                            alt="Generic placeholder image"
-                          />
-                          <div class="media-body">
-                            <h5 class="notification-user">Prakhar</h5>
-                            <p class="notification-msg">
-                              Lorem ipsum dolor sit amet, consectetuer elit.
-                            </p>
-                            <span class="notification-time"
-                              >30 minutes ago</span
-                            >
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media">
-                          <img
-                            class="img-radius"
-                            src="img/avatar-3.jpg"
-                            alt="Generic placeholder image"
-                          />
-                          <div class="media-body">
-                            <h5 class="notification-user">Joseph William</h5>
-                            <p class="notification-msg">
-                              Lorem ipsum dolor sit amet, consectetuer elit.
-                            </p>
-                            <span class="notification-time"
-                              >30 minutes ago</span
-                            >
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media">
-                          <img
-                            class="img-radius"
-                            src="img/avatar-4.jpg"
-                            alt="Generic placeholder image"
-                          />
-                          <div class="media-body">
-                            <h5 class="notification-user">Sara Soudein</h5>
-                            <p class="notification-msg">
-                              Lorem ipsum dolor sit amet, consectetuer elit.
-                            </p>
-                            <span class="notification-time"
-                              >30 minutes ago</span
-                            >
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="header-notification">
-                  <div class="dropdown-primary dropdown">
-                    <div
-                      class="displayChatbox dropdown-toggle"
-                      data-toggle="dropdown"
-                    >
-                      <i class="feather icon-message-square"></i>
-                      <span class="badge bg-c-green">3</span>
-                    </div>
-                  </div>
-                </li>
                 <li class="user-profile header-notification">
                   <div class="dropdown-primary dropdown">
                     <div class="dropdown-toggle" data-toggle="dropdown">
@@ -237,9 +155,15 @@
                           <i class="feather icon-mail"></i> My Messages
                         </a>
                       </li>
+                      <!-- full-screen -->
                       <li>
-                        <a href="auth-lock-screen.html">
-                          <i class="feather icon-lock"></i> Lock Screen
+                        <a
+                          href="#!"
+                          onclick="javascript:toggleFullScreen()"
+                          class="waves-effect waves-light"
+                        >
+                          <i class="full-screen feather icon-maximize"></i>
+                          Full-Screen
                         </a>
                       </li>
                       <li>
@@ -461,7 +385,7 @@
             <nav class="pcoded-navbar">
               <div class="nav-list">
                 <div class="pcoded-inner-navbar main-menu">
-                  <div class="pcoded-navigation-label">Navigation</div>
+                  <div class="pcoded-navigation-label">Supply Chain</div>
                   <ul class="pcoded-item pcoded-left-item">
                     <!-- transpoerter -->
                     <li onClick="JavaScript:selectTab(1);" class="">
@@ -493,7 +417,7 @@
                   </ul>
                   <div class="pcoded-navigation-label">Other</div>
                   <ul class="pcoded-item pcoded-left-item">
-                    <li class="">
+                    <!-- <li class="">
                       <a
                         href="./default/sample-page.html"
                         class="waves-effect waves-dark"
@@ -503,8 +427,8 @@
                         </span>
                         <span class="pcoded-mtext">Query Form</span>
                       </a>
-                    </li>
-                    <li class="">
+                    </li> -->
+                    <!-- <li class="">
                       <a
                         href="./default/sample-page.html"
                         class="waves-effect waves-dark"
@@ -514,7 +438,7 @@
                         </span>
                         <span class="pcoded-mtext">Contact Us</span>
                       </a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -565,19 +489,19 @@
                               <div class="floww-orderdetails"></div>
                               <table class="table table-hover m-span-0">
                                 <thead>
-                                  <tr>
-                                    <th>Status</th>
-                                    <th>Order Id</th>
-                                    <th>Pickup Address</th>
-                                    <th>Drop Address</th>
-                                    <th>Drop No</th>
-                                    <th>Transporter</th>
-                                    <th>Customer Id</th>
+                                  <tr style="text-align: center">
+                                    <th>Plan</th>
+                                    <th>Vendor Id</th>
+                                    <th>Contact No</th>
+                                    <th>Person</th>
+                                    <th>Company Name</th>
+                                    <th>Region</th>
                                     <th>Delivery Agent</th>
                                   </tr>
                                 </thead>
                                 <tbody
                                   class="floww-transport-table-row"
+                                  style="text-align: center"
                                 ></tbody>
                               </table>
                             </div>
@@ -634,61 +558,23 @@
                           <div class="card-block p-span-0">
                             <div class="table-responsive">
                               <table class="table table-hover m-span-0">
-                                <thead>
+                                <thead style="text-align: center">
                                   <tr>
-                                    <th>Name</th>
-                                    <th>Product Code</th>
-                                    <th>Customer</th>
                                     <th>Status</th>
-                                    <th>Rating</th>
+                                    <th>Order Id</th>
+                                    <th>Pickup Address</th>
+                                    <th>Drop Address</th>
+                                    <th>pickup Contact</th>
+                                    <th>Drop Contact</th>
+                                    <th>Transporter</th>
+                                    <th>Customer Id</th>
+                                    <th>Delivery Agent</th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Sofa</td>
-                                    <td>#PHD001</td>
-                                    <td>
-                                      <a
-                                        href="/cdn-cgi/l/email-protection"
-                                        class="__cf_email__"
-                                        data-cfemail="29484b4a694e44484045074a4644"
-                                        >[email&#160;protected]</a
-                                      >
-                                    </td>
-                                    <td>
-                                      <label class="label label-danger"
-                                        >Out Stock</label
-                                      >
-                                    </td>
-                                    <td>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-c-yellow"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-c-yellow"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-c-yellow"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-default"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-default"
-                                        ></i
-                                      ></a>
-                                    </td>
-                                  </tr>
-                                </tbody>
+                                <tbody
+                                  class="floww-orderlist-table-row"
+                                  style="text-align: center"
+                                ></tbody>
                               </table>
                             </div>
                           </div>
@@ -745,60 +631,18 @@
                             <div class="table-responsive">
                               <table class="table table-hover m-span-0">
                                 <thead>
-                                  <tr>
-                                    <th>Name</th>
-                                    <th>Product Code</th>
-                                    <th>Customer</th>
+                                  <tr style="text-align: center">
                                     <th>Status</th>
-                                    <th>Rating</th>
+                                    <th>Agent Id</th>
+                                    <th>Agent Name</th>
+                                    <th>Contact No</th>
+                                    <th>Transporter</th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Sofa</td>
-                                    <td>#PHD001</td>
-                                    <td>
-                                      <a
-                                        href="/cdn-cgi/l/email-protection"
-                                        class="__cf_email__"
-                                        data-cfemail="29484b4a694e44484045074a4644"
-                                        >[email&#160;protected]</a
-                                      >
-                                    </td>
-                                    <td>
-                                      <label class="label label-danger"
-                                        >Out Stock</label
-                                      >
-                                    </td>
-                                    <td>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-c-yellow"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-c-yellow"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-c-yellow"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-default"
-                                        ></i
-                                      ></a>
-                                      <a href="#!"
-                                        ><i
-                                          class="fa fa-star f-12 text-default"
-                                        ></i
-                                      ></a>
-                                    </td>
-                                  </tr>
-                                </tbody>
+                                <tbody
+                                  class="floww-agentlist-table-row"
+                                  style="text-align: center"
+                                ></tbody>
                               </table>
                             </div>
                           </div>
@@ -892,6 +736,9 @@
     <!-- <script type="text/javascript" src="js/custom-dashboard.min.js"></script> -->
     <script type="text/javascript" src="js/script.min.js"></script>
     <script type="text/javascript" src="js/allTables.js"></script>
+    <script type="text/javascript" src="js/transporterList.js"></script>
+    <script type="text/javascript" src="js/orderList.js"></script>
+    <script type="text/javascript" src="js/agentList.js"></script>
     <script src="./js/dasboard.js"></script>
   </body>
 </html>

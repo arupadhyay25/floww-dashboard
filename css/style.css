@@ -745,8 +745,8 @@ a.bg-danger:hover {
   border: none;
 }
 .floww-table-address {
-  white-space: pre-line; 
-  word-break: break-all; 
+  white-space: pre-line;
+  word-break: break-all;
 }
 .table-primary,
 .table-primary > td,
@@ -1626,6 +1626,51 @@ a.bg-danger:hover {
 }
 .label-warning {
   color: #fff;
+}
+.label-basic {
+  width: 100%;
+  text-align: center;
+  background: orange;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: white;
+}
+.label-basic2 {
+  width: 60%;
+  text-align: center;
+  background: orange;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: white;
+}
+.label-delivered {
+  background: green;
+}
+.label-enroute {
+  color: black;
+  background: yellow;
+}
+.label-assigned {
+  background: orange;
+}
+.label-requested {
+  background: #4099ff;
+}
+.label-plan-pro {
+  background: orange  ;
+}
+.label-plan {
+  background: #4099ff;
+}
+.label-active {
+  background: green;
+}
+.label-inactive {
+  background: red;
 }
 .badge-primary {
   background: #4099ff;
@@ -11615,7 +11660,6 @@ body
   .navbar-wrapper
   .navbar-logo {
   float: right;
-  
 }
 body
   .pcoded[vertical-placement="right"]
@@ -15957,7 +16001,6 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
   .navbar,
   .navbar .navbar-logo {
     width: 100%;
-    
   }
   #dt-live-dom .form-control,
   #footer-search tfoot .form-control,

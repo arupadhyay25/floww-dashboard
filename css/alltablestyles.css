@@ -30,6 +30,21 @@
 .flow-table-details-div > div > ul > li > ul > li > span {
   font-weight: bold;
 }
-.floww-transport-table-row{
+.floww-transport-table-row {
   cursor: pointer;
+}
+.floww-order-status-enroute {
+  background-color: yellow;
+  color: black;
+  text-transform: capitalize;
+}
+.floww-order-status-delivered {
+  background-color: green;
+  color: white;
+  text-transform: capitalize;
+}
+.floww-order-status-assigned {
+  background-color: orange;
+  color: white;
+  text-transform: capitalize;
 }
