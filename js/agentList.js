@@ -6,6 +6,7 @@ axios
     let responseData = JSON.parse(response.data);
     // console.log(responseData.deliveryAgentList);
     addagentlistDetails(responseData.deliveryAgentList);
+    
   })
   .catch(function (error) {
     console.log(error);

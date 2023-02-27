@@ -1,9 +1,12 @@
+document.querySelector(".table").style.display = "none";
 axios
   .get("https://backend.gofloww.co/api/v1/insight-apis/get-list-of-vendors/")
   .then(function (response) {
     let responseData = JSON.parse(response.data);
     // console.log(responseData.vendorList);
+    document.querySelector(".table").style.display = "block";
     addTransporterDetails(responseData.vendorList);
+    document.querySelector(".floww-loading").style.display = "none";
   })
   .catch(function (error) {
     console.log(error);
@@ -252,6 +255,7 @@ function showDetails(vendor_id) {
         </li>
       </ul>
       <ul class="detail-page-ul">
+      <button onclick="goback()">go back</button><br/><br/>
           <li>
             <label class="row-detals-label">logo_link :</label>
             <input type="text" name="logo_link" value=${data.logo_link} /><br/>
@@ -289,7 +293,6 @@ function showDetails(vendor_id) {
   form.addEventListener("submit", changeinput);
 }
 
-
 function changeinput(e) {
   const form = document.querySelector(".floww-details-form");
   e.preventDefault();
@@ -303,17 +306,14 @@ function changeinput(e) {
       values[input.name] = input.value;
     }
   }
-  // console.log(Object.keys(values).length);
-  let arr = [
+  let deliveryAgentList_modified = [
     {
       delivery_agent_id: "AGE000018",
       delivery_agent_name: "unknown",
     },
   ];
-  values.deliveryAgentList = arr;
+  values.deliveryAgentList = deliveryAgentList_modified;
   console.log(values);
-  document.querySelector(".floww-orderdetails2").innerHTML =
-    JSON.stringify(values);
 }
 
 function goback() {
@@ -322,4 +322,3 @@ function goback() {
   let detailsdiv = document.querySelector(".floww-orderdetails");
   detailsdiv.innerHTML = "";
 }
-let obj = {};
