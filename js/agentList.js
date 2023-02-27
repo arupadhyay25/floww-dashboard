@@ -4,7 +4,7 @@ axios
   )
   .then(function (response) {
     let responseData = JSON.parse(response.data);
-    console.log(responseData.deliveryAgentList);
+    // console.log(responseData.deliveryAgentList);
     addagentlistDetails(responseData.deliveryAgentList);
   })
   .catch(function (error) {
