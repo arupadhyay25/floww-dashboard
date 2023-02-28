@@ -19,7 +19,7 @@ function addTransporterDetails(vendorList_data) {
     .map(
       (e) => `
         <tr onclick="showDetails('${e.vendorId}')">
-        <td><l$ class="${
+        <td><label class="${
           e.vendorPlan === "pro"
             ? "label-basic label-plan-pro"
             : "label-basic label-plan"
@@ -60,7 +60,7 @@ function showDetails(vendor_id) {
     rating: "2.3",
     fleet_type: "tempo",
     fleet_size: "more than 10",
-    badges: ["b1"],
+    badges: ["Sanitized-Fleet", "mr. clean", "Perfection"],
     web_link: "N/A",
     intro_description: "text0",
     headline_text: "text0",
@@ -81,7 +81,17 @@ function showDetails(vendor_id) {
       {
         delivery_agent_id: "AGE000018",
 
-        delivery_agent_name: "unknown",
+        delivery_agent_name: "Abhishek ",
+      },
+      {
+        delivery_agent_id: "AGE000019",
+
+        delivery_agent_name: "Prakhar",
+      },
+      {
+        delivery_agent_id: "AGE000020",
+
+        delivery_agent_name: "Anish",
       },
     ],
     device_id: "N/A",
@@ -100,7 +110,11 @@ function showDetails(vendor_id) {
   detailsdiv.innerHTML = `
   <form class="floww-details-form">
   <ul class="detail-page-ul">
-        <h1>All Details</h1><br/>
+        <div style="display:flex;gap:30px;align-items:center">
+          <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" width="40px" height="40px" class="floww-details-form-goback" onclick="goback()"/>
+          <h1>All Details</h1>
+        </div>
+        <br/>
         <li>
           <label class="row-detals-label">vendor Id :</label>
           ${data.vendor_id}
@@ -255,7 +269,6 @@ function showDetails(vendor_id) {
         </li>
       </ul>
       <ul class="detail-page-ul">
-      <button onclick="goback()">go back</button><br/><br/>
           <li>
             <label class="row-detals-label">logo_link :</label>
             <input type="text" name="logo_link" value=${data.logo_link} /><br/>
@@ -282,6 +295,48 @@ function showDetails(vendor_id) {
             } width="300px" alt="Image not found"/>
           </li>
           <br/>
+          <li>
+            <label class="row-detals-label">Badges :</label><br/>
+            ${data.badges
+              .map(
+                (badge) => `
+                <label class="label-badge"
+                }"
+                 >${badge}</label>
+          `
+              )
+              .join("")}
+          </li>
+          <li>
+          <label class="row-detals-label">delivery_agent_list :</label>
+            <table class="delivery-agent-list-table">
+              <thead>
+                  <tr >
+                    <td>Sr No.</td>
+                    <td>Delivery Agent Id</td>
+                    <td>Delivery Agent Name</td>
+                  </tr>
+                </thead>
+                <tbody class="delivery-agent-list">
+                ${data.delivery_agent_list
+                  .map(
+                    (agent, index) => `
+                <tr>
+                  <td>${index + 1}</td>
+                  <td><input class="detail-page-ul-input" type="text" name="delivery_agent_id" value=${
+                    agent.delivery_agent_id
+                  } /></td>
+                  <td><input class="detail-page-ul-input" type="text" name="delivery_agent_name" value=${
+                    agent.delivery_agent_name
+                  } /></td>
+                </tr>
+              `
+                  )
+                  .join("")}
+              </tbody>
+            </table>
+          </li>
+          <br/>
 
           <button type="submit">Save Changes</button>
       </ul>
@@ -306,13 +361,24 @@ function changeinput(e) {
       values[input.name] = input.value;
     }
   }
-  let deliveryAgentList_modified = [
-    {
-      delivery_agent_id: "AGE000018",
-      delivery_agent_name: "unknown",
-    },
-  ];
-  values.deliveryAgentList = deliveryAgentList_modified;
+  // <------ delivery_agent_list logic start--->
+  const rows = document.querySelectorAll(".delivery-agent-list tr");
+  const dataArray = [];
+
+  rows.forEach((row) => {
+    const [deliveryAgentId, deliveryAgentName] =
+      row.querySelectorAll("td input");
+
+    const obj = {
+      delivery_agent_id: deliveryAgentId ? deliveryAgentId.value : "",
+      delivery_agent_name: deliveryAgentName ? deliveryAgentName.value : "",
+    };
+
+    dataArray.push(obj);
+  });
+  // <------ delivery_agent_list logic ends--->
+
+  values.deliveryAgentList = dataArray;
   console.log(values);
 }
 
