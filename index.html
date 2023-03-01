@@ -391,7 +391,7 @@
                     <li onClick="JavaScript:selectTab(1);" class="">
                       <a class="waves-effect waves-dark">
                         <span class="pcoded-micon">
-                          <i class="feather icon-menu"></i>
+                          <i class="feather icon-package"></i>
                         </span>
                         <span class="pcoded-mtext">Transporter List</span>
                       </a>
@@ -400,7 +400,7 @@
                     <li onClick="JavaScript:selectTab(2);" class="">
                       <a class="waves-effect waves-dark">
                         <span class="pcoded-micon">
-                          <i class="feather icon-menu"></i>
+                          <i class="feather icon-shopping-cart"></i>
                         </span>
                         <span class="pcoded-mtext">Order List</span>
                       </a>
@@ -409,7 +409,7 @@
                     <li onClick="JavaScript:selectTab(3);" class="">
                       <a class="waves-effect waves-dark">
                         <span class="pcoded-micon">
-                          <i class="feather icon-menu"></i>
+                          <i class="feather icon-info"></i>
                         </span>
                         <span class="pcoded-mtext">Agent List</span>
                       </a>
@@ -450,7 +450,7 @@
                 <div class="row align-items-end">
                   <div class="col-lg-8">
                     <div class="page-header-title">
-                      <i class="feather icon-home bg-c-blue"></i>
+                      <i class="feather icon-package bg-c-blue"></i>
                       <div class="d-inline">
                         <h5>Transporters List</h5>
                         <span
@@ -463,13 +463,16 @@
                   <div class="col-lg-4">
                     <div class="page-header-breadcrumb">
                       <ul class="breadcrumb breadcrumb-title">
-                        <li class="breadcrumb-item">
-                          <a href="index.html"
-                            ><i class="feather icon-home"></i
-                          ></a>
-                        </li>
-                        <li class="breadcrumb-item">
-                          <a href="#!">Dashboard</a>
+                        <li class="floww-filter-list">
+                          <select
+                            name="sort-by-plan"
+                            id="floww-sort-by-plan"
+                            onchange="getTransportlistData()"
+                          >
+                            <option value="all">Sort by Vendor Plan</option>
+                            <option value="basic">Basic Plan</option>
+                            <option value="pro">Pro Plan</option>
+                          </select>
                         </li>
                       </ul>
                     </div>
@@ -508,10 +511,10 @@
                                     <th>Plan</th>
                                     <th>Vendor Id</th>
                                     <th>Contact No</th>
-                                    <th>Person</th>
-                                    <th>Company Name</th>
+                                    <th style="width: 100%">Person</th>
+                                    <th style="width: 100%">Company Name</th>
                                     <th>Region</th>
-                                    <th>Delivery Agent</th>
+                                    <th style="width: 100%">Delivery Agent</th>
                                   </tr>
                                 </thead>
                                 <tbody
@@ -536,11 +539,11 @@
                 <div class="row align-items-end">
                   <div class="col-lg-8">
                     <div class="page-header-title">
-                      <i class="feather icon-home bg-c-blue"></i>
+                      <i class="feather icon-shopping-cart bg-c-blue"></i>
                       <div class="d-inline">
                         <h5>Orders List</h5>
                         <span
-                          >Below are the list of all our transporter with
+                          >Below are the list of all our Orders with
                           details</span
                         >
                       </div>
@@ -549,13 +552,18 @@
                   <div class="col-lg-4">
                     <div class="page-header-breadcrumb">
                       <ul class="breadcrumb breadcrumb-title">
-                        <li class="breadcrumb-item">
-                          <a href="index.html"
-                            ><i class="feather icon-home"></i
-                          ></a>
-                        </li>
-                        <li class="breadcrumb-item">
-                          <a href="#!">Dashboard</a>
+                        <li class="floww-filter-list">
+                          <select
+                            name="sort-by-status"
+                            id="floww-sort-by-status"
+                            onchange="getOrderlistData()"
+                          >
+                            <option value="all">Sort by Status</option>
+                            <option value="enroute">Enroute</option>
+                            <option value="requested">Requested</option>
+                            <option value="assigned">Assigned</option>
+                            <option value="delivered">Delivered</option>
+                          </select>
                         </li>
                       </ul>
                     </div>
@@ -572,7 +580,11 @@
                         <div class="col-md-12">
                           <div class="card-block p-span-0">
                             <div class="table-responsive">
-                              <table class="table table-hover m-span-0">
+                              <div class="floww-single-order-details"></div>
+                              <table
+                                id="floww-orderlist-table"
+                                class="table table-hover m-span-0"
+                              >
                                 <thead style="text-align: center">
                                   <tr>
                                     <th>Status</th>
@@ -608,11 +620,11 @@
                 <div class="row align-items-end">
                   <div class="col-lg-8">
                     <div class="page-header-title">
-                      <i class="feather icon-home bg-c-blue"></i>
+                      <i class="feather icon-info bg-c-blue"></i>
                       <div class="d-inline">
                         <h5>Agent List</h5>
                         <span
-                          >Below are the list of all our transporter with
+                          >Below are the list of all our Agnet with
                           details</span
                         >
                       </div>
@@ -621,13 +633,16 @@
                   <div class="col-lg-4">
                     <div class="page-header-breadcrumb">
                       <ul class="breadcrumb breadcrumb-title">
-                        <li class="breadcrumb-item">
-                          <a href="index.html"
-                            ><i class="feather icon-home"></i
-                          ></a>
-                        </li>
-                        <li class="breadcrumb-item">
-                          <a href="#!">Dashboard</a>
+                        <li class="floww-filter-list">
+                          <select
+                            name="sort-by-agent-status"
+                            id="floww-sort-by-agent-status"
+                            onchange="getAgentlistData()"
+                          >
+                            <option value="all">Sort by Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                          </select>
                         </li>
                       </ul>
                     </div>
@@ -742,9 +757,9 @@
     x
     <script src="./js/chartist.js"></script>
 
-    <script src="js/amcharts.js"></script>
+    <!-- <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
-    <script src="js/light.js"></script>
+    <script src="js/light.js"></script> -->
 
     <script src="js/pcoded.min.js"></script>
     <script src="js/vertical-layout.min.js"></script>

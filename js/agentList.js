@@ -1,16 +1,32 @@
-axios
-  .get(
-    "https://backend.gofloww.co/api/v1/insight-apis/get-list-of-delivery-agents/"
-  )
-  .then(function (response) {
-    let responseData = JSON.parse(response.data);
-    // console.log(responseData.deliveryAgentList);
-    addagentlistDetails(responseData.deliveryAgentList);
-    
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+getAgentlistData();
+function getAgentlistData() {
+  axios
+    .get(
+      "https://backend.gofloww.co/api/v1/insight-apis/get-list-of-delivery-agents/"
+    )
+    .then(function (response) {
+      let responseData = JSON.parse(response.data);
+      const sortByAgentStatus = document.getElementById(
+        "floww-sort-by-agent-status"
+      ).value;
+      if (sortByAgentStatus == "all") {
+        addagentlistDetails(responseData.deliveryAgentList);
+      } else if (sortByAgentStatus == "inactive") {
+        let inactiveagent = responseData.deliveryAgentList.filter(
+          (e) => e.agentStatus == "inactive"
+        );
+        addagentlistDetails(inactiveagent);
+      } else if (sortByAgentStatus == "active") {
+        let activeagent = responseData.deliveryAgentList.filter(
+          (e) => e.agentStatus == "active"
+        );
+        addagentlistDetails(activeagent);
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
 
 function addagentlistDetails(agentList_data) {
   var transporter_table_body = document.querySelector(

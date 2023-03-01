@@ -1,16 +1,35 @@
-document.querySelector(".table").style.display = "none";
-axios
-  .get("https://backend.gofloww.co/api/v1/insight-apis/get-list-of-vendors/")
-  .then(function (response) {
-    let responseData = JSON.parse(response.data);
-    // console.log(responseData.vendorList);
-    document.querySelector(".table").style.display = "block";
-    addTransporterDetails(responseData.vendorList);
-    document.querySelector(".floww-loading").style.display = "none";
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+window.onload = function () {
+  document.querySelector(".table").style.display = "none";
+  getTransportlistData();
+};
+
+function getTransportlistData() {
+  axios
+    .get("https://backend.gofloww.co/api/v1/insight-apis/get-list-of-vendors/")
+    .then(function (response) {
+      let responseData = JSON.parse(response.data);
+      document.querySelector(".table").style.display = "block";
+      const sortByPlan = document.getElementById("floww-sort-by-plan").value;
+      if (sortByPlan == "all") {
+        addTransporterDetails(responseData.vendorList);
+      } else if (sortByPlan == "basic") {
+        let basicplanlist = responseData.vendorList.filter(
+          (e) => e.vendorPlan == "basic"
+        );
+        addTransporterDetails(basicplanlist);
+      } else if (sortByPlan == "pro") {
+        let proplanlist = responseData.vendorList.filter(
+          (e) => e.vendorPlan == "pro"
+        );
+        addTransporterDetails(proplanlist);
+      }
+      document.querySelector(".floww-loading").style.display = "none";
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
 function addTransporterDetails(vendorList_data) {
   var transporter_table_body = document.querySelector(
     ".floww-transport-table-row"
@@ -18,7 +37,7 @@ function addTransporterDetails(vendorList_data) {
   transporter_table_body.innerHTML = `${vendorList_data
     .map(
       (e) => `
-        <tr onclick="showDetails('${e.vendorId}')">
+        <tr style="cursor:pointer" onclick="showDetails('${e.vendorId}')">
         <td><label class="${
           e.vendorPlan === "pro"
             ? "label-basic label-plan-pro"
@@ -42,6 +61,7 @@ function addTransporterDetails(vendorList_data) {
 
 // showDetails();
 function showDetails(vendor_id) {
+  document.querySelector(".floww-filter-list").style.display = "none";
   let detailsdiv = document.querySelector(".floww-orderdetails");
 
   // console.log(vendor_id);
@@ -108,13 +128,15 @@ function showDetails(vendor_id) {
   // console.log(Object.keys(data).length);
 
   detailsdiv.innerHTML = `
-  <form class="floww-details-form">
+  <div>
+  <div class="floww-detailpage-header">
+      <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" width="40px" height="40px" class="floww-details-form-goback" onclick="goback()"/>
+      <h1>All Details</h1>
+  </div>
+  <hr/>
+  <form class="floww-details-form" style="margin-top:20px">
   <ul class="detail-page-ul">
-        <div style="display:flex;gap:30px;align-items:center">
-          <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" width="40px" height="40px" class="floww-details-form-goback" onclick="goback()"/>
-          <h1>All Details</h1>
-        </div>
-        <br/>
+        
         <li>
           <label class="row-detals-label">vendor Id :</label>
           ${data.vendor_id}
@@ -271,28 +293,24 @@ function showDetails(vendor_id) {
       <ul class="detail-page-ul">
           <li>
             <label class="row-detals-label">logo_link :</label>
-            <input type="text" name="logo_link" value=${data.logo_link} /><br/>
+            <input  type="text" name="logo_link" value=${data.logo_link} /><br/><br/>
             <img src=${data.logo_link} width="200px" alt="Image not found"/>
             </li>
             <br/>
           <li>
-            <label class="row-detals-label">aadhaar_no_front_image_link :</label>
-            <input type="text" name="aadhaar_no_front_image_link" value=${
-              data.aadhaar_no_front_image_link
-            } /><br/>
-            <img src=${
-              data.aadhaar_no_front_image_link
-            } width="300px" alt="Image not found"/>
+            <label class="row-detals-label">aadhaar Card :</label><br/>
+            <label class="row-detals-label">front:</label>
+            <input type="text" name="aadhaar_no_front_image_link" value=${data.aadhaar_no_front_image_link} /><br/>
+            <label class="row-detals-label">back:</label>
+            <input type="text" name="aadhaar_no_front_image_link" value=${data.aadhaar_no_front_image_link} /><br/>
+            <img src=${data.aadhaar_no_front_image_link} width="250px" alt="Image not found"/>
+            <img src=${data.aadhaar_no_front_image_link} width="250px" alt="Image not found"/>
           </li>
           <br/>
           <li>
             <label class="row-detals-label">pan_no_image_front_link :</label>
-            <input type="text" name="pan_no_image_front_link" value=${
-              data.pan_no_image_front_link
-            } /><br/>
-            <img src=${
-              data.pan_no_image_front_link
-            } width="300px" alt="Image not found"/>
+            <input type="text" name="pan_no_image_front_link" value=${data.pan_no_image_front_link} /><br/>
+            <img src=${data.pan_no_image_front_link} width="250px" alt="Image not found"/>
           </li>
           <br/>
           <li>
@@ -341,6 +359,7 @@ function showDetails(vendor_id) {
           <button type="submit">Save Changes</button>
       </ul>
     </form>
+    </div>
     `;
   detailsdiv.style.display = "block";
   document.querySelector(".table").style.display = "none";
@@ -358,7 +377,12 @@ function changeinput(e) {
     if (input.name == "vendor_account_locked") {
       values[input.name] = input.value === "true" ? true : false;
     } else {
-      values[input.name] = input.value;
+      if (
+        input.name !== "delivery_agent_id" &&
+        input.name !== "delivery_agent_name"
+      ) {
+        values[input.name] = input.value;
+      }
     }
   }
   // <------ delivery_agent_list logic start--->
@@ -387,4 +411,5 @@ function goback() {
   transporter_table.style.display = "block";
   let detailsdiv = document.querySelector(".floww-orderdetails");
   detailsdiv.innerHTML = "";
+  document.querySelector(".floww-filter-list").style.display = "block";
 }
